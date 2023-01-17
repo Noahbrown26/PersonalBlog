@@ -1,5 +1,6 @@
 import jwt from "jsonwebtoken";
 
+// JWT USER TOKEN AUTHORIZATION //
 export const verifyToken = async (req, res, next) => {
   try {
     let token = req.header("Authorization");
@@ -11,7 +12,7 @@ export const verifyToken = async (req, res, next) => {
     if (token.startsWith("Bearer ")) {
       token = token.slice(7, token.length).trimLeft();
     }
-
+// assign secret answer to environment variables //
     const verified = jwt.verify(token, process.env.JWT_SECRET);
     req.user = verified;
     next();
