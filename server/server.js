@@ -11,6 +11,8 @@ import path from "path";
 import { fileURLToPath } from "url";
 
 // IMPORT ROUTES //
+import authRoutes from "./routes/auth.js";
+import userRoutes from "./routes/users.js"
 import {register} from "./controllers/auth.js";
 
 // CONFIGURATIONS //
@@ -42,6 +44,10 @@ const storage = multer.diskStorage({
 
 // FILE ROUTES //
 app.post("/auth/register", upload.single("picture"), register);
+
+// USER ROUTES //
+app.use("/auth", authRoutes);
+app.use("/users", userRoutes);
 
 // MONGOOSE SETUP //
 const PORT = process.env.PORT || 6001;
