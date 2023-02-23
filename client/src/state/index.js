@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/tookkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
 
@@ -50,4 +50,4 @@ export const authSlice = createSlice({
 })
 
 export const {setMode, setLogin, setLogout, setFriends, setPosts, setPost} = authSlice.actions;
-export default authSlice.recuder;
+export default authSlice.reducer;
