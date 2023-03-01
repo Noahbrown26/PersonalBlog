@@ -4,7 +4,12 @@
   "description": "A personal blog page with a robust user experience",
   "main": "server/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "cd client && npm run build",
+    "install": "cd server && npm i && cd ../client && npm i",
+    "heroku-postbuild": "npm run install && npm run build",
+    "start": "node server/server.js",
+    "client": "cd client && npm start",
+    "dev": "concurrently \"cd server && npm run watch\" \"cd client && npm start\""
   },
   "repository": {
     "type": "git",
